@@ -154,7 +154,7 @@
             flex-direction: column;
             align-items: center;
             max-width: 1000px;
-            /* Exactly scale the whole content to 80% as requested */
+            /* Exactly scale the whole content to 80% */
             transform: scale(0.8);
             transform-origin: center;
             z-index: 2; /* Ensures text is clickable and above images */
@@ -298,8 +298,10 @@
 
     <div class="presentation-wrapper" id="scroll-container">
         
+        <!-- SLIDE 1: Cinematic Cover & Hook -->
         <section class="slide cover-slide">
             
+            <!-- Dynamic Floating Gallery (Behind Text) -->
             <div class="floating-gallery">
                 <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-1.webp" class="img-1">
                 <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-2.webp" class="img-2">
@@ -312,13 +314,18 @@
                 <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-9.webp" class="img-9">
             </div>
 
+            <!-- Scaled 80% Foreground Content -->
             <div class="container cover-content">
                 <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/logo.webp" alt="Konga Logo" class="cover-logo reveal">
-                <h1 class="reveal delay-1">I build the app your business can't launch without <br><span class="accent-text">— and you watch it happen.</span></h1>
-                <p class="subtitle reveal delay-2">Flagship Case Study // Konga E-commerce</p>
+                
+                <h1 class="reveal delay-1">I turn business ideas into apps <br><span class="accent-text">people actually use.</span></h1>
+                <p class="subtitle reveal delay-2">Flagship Case Study // Konga Online Marketplace</p>
+                
                 <div class="reveal delay-3" style="margin-top: 1rem;">
                     <a href="#availability" class="btn">View The Build</a>
                 </div>
+                
+                <!-- App Store Subtitle -->
                 <p class="store-text reveal delay-4">Konga ecommerce app available in App Store and Play Store.</p>
             </div>
             
@@ -328,6 +335,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 2: Availability -->
         <section class="slide slide-dark-alt" id="availability">
             <div class="container">
                 <div class="status-grid reveal">
@@ -347,6 +355,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 3: Feature 01 - Search -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -365,6 +374,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 4: Feature 02 - Personalization -->
         <section class="slide slide-dark">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -383,6 +393,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 5: Feature 03 - Filters -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -401,6 +412,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 6: Feature 04 - Favorites -->
         <section class="slide slide-dark-alt">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -419,6 +431,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 7: Feature 05 - Checkout -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -437,6 +450,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 8: Feature 06 - Payments -->
         <section class="slide slide-dark">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -455,6 +469,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 9: Feature 07 - Tracking -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -473,6 +488,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 10: Feature 08 - Management -->
         <section class="slide slide-dark-alt">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -491,6 +507,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 11: Feature 09 - Deals -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -509,6 +526,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 12: The Dashboard Philosophy -->
         <section class="slide slide-dark">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -542,6 +560,7 @@
             </div>
         </section>
 
+        <!-- SLIDE 13: Closing CTA -->
         <section class="slide slide-dark-alt">
             <div class="container cta-content">
                 <h2 class="reveal">Ready to build?</h2>
@@ -554,6 +573,7 @@
 
     </div>
 
+    <!-- Intersection Observer JS for Presentation Reveals -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const observerOptions = {
