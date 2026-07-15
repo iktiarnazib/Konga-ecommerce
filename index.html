@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Konga - The All-New Experience</title>
+    <style>
+        /* CSS Variables for seamless theme management */
+        :root {
+            --konga-orange: #F7931E; /* Vibrant Orange Theme */
+            --konga-orange-dark: #D67D1A;
+            --text-dark: #2C3E50;
+            --text-muted: #596A7A;
+            --bg-white: #FFFFFF;
+            --bg-off-white: #FFF7EE; /* Very light orange tint for alternating sections */
+        }
+
+        /* Reset and Base Styles */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--bg-white);
+            overflow-x: hidden;
+        }
+
+        /* Sticky Header */
+        header {
+            background-color: var(--bg-white);
+            padding: 1rem 5%;
+            display: flex;
+            align-items: center;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .logo-container img {
+            height: 50px;
+            width: auto;
+            margin-right: 1rem;
+        }
+
+        .header-title {
+            font-size: 1.5rem;
+            font-weight: 800;
+            color: var(--konga-orange);
+            letter-spacing: -0.5px;
+        }
+
+        /* Hero Intro Section */
+        .hero {
+            background: linear-gradient(135deg, var(--konga-orange) 0%, #FFB04C 100%);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 5rem 2rem;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        /* Alternating Feature Sections */
+        .feature-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 6rem 5%;
+            gap: 2rem;
+        }
+
+        /* Seamless transition between sections */
+        .feature-section:nth-child(even) {
+            background-color: var(--bg-off-white);
+            flex-direction: row-reverse;
+        }
+
+        .feature-content {
+            flex: 1;
+            min-width: 300px;
+            padding: 1rem 2rem;
+        }
+
+        .feature-content h2 {
+            color: var(--konga-orange);
+            font-size: 2.2rem;
+            margin-bottom: 1rem;
+            line-height: 1.2;
+        }
+
+        .feature-content p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .feature-content ul {
+            list-style-type: none;
+            margin-top: 1.5rem;
+        }
+
+        .feature-content ul li {
+            position: relative;
+            padding-left: 2rem;
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        .feature-content ul li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--konga-orange);
+            font-weight: bold;
+            font-size: 1.2rem;
+        }
+
+        .feature-image {
+            flex: 1;
+            min-width: 300px;
+            text-align: center;
+            position: relative;
+        }
+
+        /* App Screenshot Styling */
+        .feature-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 20px;
+            box-shadow: 0 20px 40px rgba(247, 147, 30, 0.15);
+            transition: transform 0.4s ease;
+        }
+
+        .feature-image img:hover {
+            transform: translateY(-10px);
+        }
+
+        /* Call to Action Button */
+        .cta-btn {
+            display: inline-block;
+            background-color: var(--konga-orange);
+            color: var(--bg-white);
+            padding: 1rem 2.5rem;
+            font-size: 1.1rem;
+            font-weight: bold;
+            text-decoration: none;
+            border-radius: 50px;
+            margin-top: 1.5rem;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 10px 20px rgba(247, 147, 30, 0.3);
+        }
+
+        .cta-btn:hover {
+            background-color: var(--konga-orange-dark);
+            transform: scale(1.05);
+        }
+
+        .cta-btn-white {
+            background-color: var(--bg-white);
+            color: var(--konga-orange);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--text-dark);
+            color: var(--bg-white);
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .feature-section, 
+            .feature-section:nth-child(even) {
+                flex-direction: column;
+                text-align: center;
+                padding: 4rem 5%;
+            }
+            .feature-content ul li {
+                text-align: left;
+                display: inline-block;
+                width: 100%;
+            }
+            .feature-content ul li::before {
+                left: -1.5rem;
+            }
+            .feature-content ul {
+                display: inline-block;
+                text-align: left;
+                padding-left: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Sticky Header -->
+    <header>
+        <div class="logo-container">
+            <!-- Ensure logo.webp is in the root directory -->
+            <img src="logo.webp" alt="Konga Logo"> 
+        </div>
+        <div class="header-title">Konga</div>
+    </header>
+
+    <!-- Hero Introduction -->
+    <section class="hero">
+        <h1>Welcome to the all-new Konga experience.</h1>
+        <p>Konga is Nigeria's trusted digital commerce platform, designed to make shopping simpler, smarter, and more rewarding. Built around trust, convenience, and value, Konga helps you discover more, shop with confidence, and save every day.</p>
+        <a href="#download" class="cta-btn cta-btn-white">Explore the App</a>
+    </section>
+
+    <!-- Section 1: Categories -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>Discover Everything You Need</h2>
+            <p>Explore a wide selection of products across electronics, mobile phones, computing, fashion, groceries, beauty, home and kitchen, appliances, baby products, office essentials, gaming, sports and fitness, automotive accessories, health and wellness, and so much more.</p>
+        </div>
+        <div class="feature-image">
+            <img src="picture-1.webp" alt="Konga Categories">
+        </div>
+    </section>
+
+    <!-- Section 2: Brands -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>The Brands You Love, In One Place</h2>
+            <p>Whether you're buying everyday essentials, upgrading your technology, refreshing your wardrobe, furnishing your home, or shopping for your business, Konga brings together authentic products from life's biggest purchases down to your daily needs.</p>
+        </div>
+        <div class="feature-image">
+            <img src="picture-2.webp" alt="Konga Brands">
+        </div>
+    </section>
+
+    <!-- Section 3: Effortless Shopping -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>A Smarter Way to Shop</h2>
+            <p>Designed around the way you shop, the Konga app makes every experience effortless. We bring you trusted sellers, secure payments, and reliable nationwide delivery—all in one seamless app experience.</p>
+        </div>
+        <div class="feature-image">
+            <img src="picture-3.webp" alt="Smarter Way to Shop">
+        </div>
+    </section>
+
+    <!-- Section 4: App Features 1 -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>Intelligent & Personalized</h2>
+            <p>Every feature is built to help you spend less time searching and more time enjoying what matters. Enjoy seamless digital tools directly at your fingertips.</p>
+            <ul>
+                <li>Fast and intelligent search</li>
+                <li>Personalized recommendations</li>
+                <li>Smart filters to help you find exactly what you need</li>
+                <li>Save your favourites for later</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="picture-4.webp" alt="App Search and Filters">
+        </div>
+    </section>
+
+    <!-- Section 5: App Features 2 -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>Easy Order Management</h2>
+            <p>From the moment you add to cart until the package arrives at your door, Konga keeps you updated and fully in control of your purchases.</p>
+            <ul>
+                <li>Secure, simple checkout</li>
+                <li>Multiple payment options</li>
+                <li>Real-time order tracking</li>
+                <li>Easy order management</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="picture-5.webp" alt="Order Management and Checkout">
+        </div>
+    </section>
+
+    <!-- Section 6: Trust & Authenticity -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>Shop with Confidence</h2>
+            <p>Trust is at the heart of everything we do. Because every purchase should feel as confident as it is convenient, we've built a robust system to protect you.</p>
+            <ul>
+                <li>Verified trusted sellers</li>
+                <li>100% authentic products</li>
+                <li>Secure payment experiences</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="picture-6.webp" alt="Trusted Sellers and Authenticity">
+        </div>
+    </section>
+
+    <!-- Section 7: Delivery & Support -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>Reliable Nationwide Service</h2>
+            <p>No matter where you are in Nigeria, we deliver. Backed by real customer feedback and a dedicated support team, you are never shopping alone.</p>
+            <ul>
+                <li>Verified customer ratings and reviews</li>
+                <li>Reliable nationwide delivery</li>
+                <li>Responsive customer support</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="picture-7.webp" alt="Nationwide Delivery and Support">
+        </div>
+    </section>
+
+    <!-- Section 8: Value & Deals -->
+    <section class="feature-section">
+        <div class="feature-content">
+            <h2>More Value, Every Day</h2>
+            <p>Great value isn't occasional—it's part of every Konga experience. Discover new ways to maximize your budget and save on the items you love.</p>
+            <ul>
+                <li>Exclusive App-Only Deals</li>
+                <li>Daily Deals & Seasonal Campaigns</li>
+                <li>Brand Promotions</li>
+                <li>Curated Collections</li>
+            </ul>
+        </div>
+        <div class="feature-image">
+            <img src="picture-8.webp" alt="Konga Deals and Value">
+        </div>
+    </section>
+
+    <!-- Section 9: Conclusion & CTA -->
+    <section class="feature-section" id="download">
+        <div class="feature-content">
+            <h2>Always Getting Better</h2>
+            <p>We're constantly improving the Konga app with faster performance, smarter search, enhanced personalization, improved navigation, and new features inspired by our customers.</p>
+            <p><strong>Our goal is simple:</strong> to create Nigeria's most trusted and enjoyable digital commerce experience.</p>
+            <a href="#" class="cta-btn">Download the App Today</a>
+        </div>
+        <div class="feature-image">
+            <img src="picture-9.webp" alt="Download Konga App">
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p><strong>Konga.</strong> Where Nigeria Shops with Confidence.</p>
+        <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">© 2026 Konga Online Marketplace. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
