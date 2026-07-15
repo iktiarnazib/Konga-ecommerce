@@ -1,118 +1,490 @@
-Nine Feature Sections — Screenshot-by-Screenshot Copy (Persuasion-Tactic Mapped)
-
-Each section below corresponds to one screenshot (picture-1.webp through picture-9.webp). Every section pairs the feature shown with one primary persuasion tactic, so the page builds a full case for hiring you as it scrolls — not just a feature tour. Tactic is labeled so you can see the mechanism; drop the label before shipping (it's for your reference, not for the visitor).
-
-
-01 — Search (picture-1.webp)
-
-Tactic: Exclusivity, reframed as quality control.
-
-
-Headline: Search that actually understands the request.
-Body: Most developers ship a search bar that matches keywords. This one understands intent — because I only take on builds where I have room to get details like this right. That's exactly why I keep my client list small.
-Micro-line under image: Built the way it should work, not the way it's fastest to ship.
-
-
-
-
-02 — Personalized Recommendations (picture-2.webp)
-
-Tactic: FOMO, tied to cost of waiting.
-
-
-Headline: A homepage that learns before your competitors' does.
-Body: Personalization engines like this take real integration time — the earlier you start, the earlier your users start seeing a homepage built around them instead of a generic catalog. Every month without it is a month a competitor's app feels smarter than yours.
-Micro-line under image: The apps that win retention usually shipped this before their category expected it.
-
-
-
-
-03 — Smart Filters (picture-3.webp)
-
-Tactic: The dashboard-as-freedom principle, applied to UI control.
-
-
-Headline: Total control, without the clutter.
-Body: Good filtering isn't about adding options — it's about giving users precise control while keeping the interface calm. This is the same principle behind the client dashboard you get when we work together: full visibility and control, none of the overwhelm.
-Micro-line under image: Narrow down to exactly right, never lose your place.
-
-
-
-
-04 — Save Favourites (picture-4.webp)
-
-Tactic: Scarcity — framed as protecting quality, not manufacturing hype.
-
-
-Headline: Small details, built by someone who has time for them.
-Body: A "save for later" button seems simple until you notice the ones that sync instantly, remember state across sessions, and never lose an item. Details like this are what get skipped on rushed builds — which is part of why I only take a couple of projects at a time.
-Micro-line under image: One tap. It's there when you come back. Every time.
-
-
-
-
-05 — Secure, Simple Checkout (picture-5.webp)
-
-Tactic: Client's best interest, stated plainly.
-
-
-Headline: Checkout built to protect the sale, not just process it.
-Body: Every extra tap at checkout is a chance for someone to abandon their cart. I build checkout flows around what keeps a customer moving forward — because a smoother checkout for your users is directly a better outcome for your business. That alignment is the whole point.
-Micro-line under image: Fewer taps, clear totals, no surprises at the end.
-
-
-
-
-06 — Multiple Payment Options (picture-6.webp)
-
-Tactic: Social proof — structured placeholder, no fabricated claim.
-
-
-Headline: Payment flexibility that clients notice immediately.
-Body: [Placeholder — replace with a real client quote about payment/checkout experience, e.g.: "Client Name, Company — 'The checkout felt easier than apps three times our size.'"]
-Micro-line under image: Secure by default, flexible by design.
-
-
-
-(Note: keep this bracketed placeholder visible in your working draft; swap in an actual client quote before publishing. Don't ship a specific attributed review that didn't happen.)
-
-
-07 — Real-Time Order Tracking (picture-7.webp)
-
-Tactic: Dashboard-as-freedom — the clearest match of any section.
-
-
-Headline: You never have to ask "is it done yet?"
-Body: This is the same experience you get as a client working with me. No status meetings, no chasing an email — you open a live view and see exactly where things stand. I build that transparency into the products I make because I build it into how I work.
-Micro-line under image: Confirmed to delivered, visible the whole way.
-
-
-
-
-08 — Easy Order Management (picture-8.webp)
-
-Tactic: Exclusivity reframed as a newly-open opportunity.
-
-
-Headline: The kind of polish that's usually reserved for referral clients.
-Body: Most of my work comes through word of mouth, and builds at this level of detail don't usually go up for public availability. I'm opening a couple of slots this quarter — this is the standard you'd be getting into.
-Micro-line under image: Reorder, track, or resolve — all in one place, no digging.
-
-
-
-
-09 — Daily Deals / App-Only Offers (picture-9.webp)
-
-Tactic: FOMO + Scarcity combined — the closing push before the final CTA.
-
-
-Headline: The window to start this quarter is closing.
-Body: Just like these deals don't sit open indefinitely, project availability doesn't either. If a build like this is something you want in market this year, the timing to start is now, not after the next slot fills.
-Micro-line under image: Built to bring users back — the way your project should be timed to bring clients in.
-
-
-
-
-Placement Note
-
-Keep the alternating image-left/image-right layout and the 01–09 numbering from the original build prompt — the numbering still reads as a real sequence (a shopper's journey through the app), and now it doubles as a rising case for hiring you, ending on the two hardest-closing tactics (08 and 09) right before your final CTA section.
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>App Development Pitch Deck</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --warm-paper: #FAF8F5;
+            --konga-orange: #F7931E;
+            --rust: #C65D0D;
+            --market-gold: #FFC107;
+            --slate-900: #0F172A;
+            --slate-800: #1E293B;
+            --text-main: #0F172A;
+            --text-muted: #64748B;
+            --white: #FFFFFF;
+            --border-light: #E2E8F0;
+            --border-dark: #334155;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--slate-900);
+            color: var(--text-main);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow: hidden; 
+        }
+
+        h1, h2, h3, h4 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            letter-spacing: -0.03em;
+            line-height: 1.05;
+        }
+
+        /* Persistent Brand Awning */
+        .awning-top {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: repeating-linear-gradient(
+                135deg,
+                var(--konga-orange),
+                var(--konga-orange) 20px,
+                var(--market-gold) 20px,
+                var(--market-gold) 40px
+            );
+            z-index: 100;
+        }
+
+        /* Presentation Snap Scrolling */
+        .presentation-wrapper {
+            height: 100svh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        .slide {
+            min-height: 100svh;
+            width: 100%;
+            scroll-snap-align: start;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 4rem 5%;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            width: 100%;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* Theme Variants */
+        .slide-light { background-color: var(--warm-paper); color: var(--text-main); }
+        .slide-dark { background-color: var(--slate-900); color: var(--white); }
+        
+        .slide-light .text-muted { color: var(--text-muted); }
+        .slide-dark .text-muted { color: #94A3B8; }
+
+        /* Typography & Components */
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--konga-orange);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
+            padding: 1.25rem 2.5rem;
+            border-radius: 50px;
+            transition: all 0.3s ease;
+            font-size: 1.1rem;
+            box-shadow: 0 10px 25px -5px rgba(247, 147, 30, 0.4);
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: var(--rust);
+            transform: translateY(-2px);
+        }
+
+        /* Intro Slides */
+        .hero-content, .cta-content { text-align: center; max-width: 900px; margin: 0 auto; }
+        .hero-content h1, .cta-content h2 { font-size: clamp(3rem, 6vw, 5rem); margin-bottom: 1.5rem; }
+        .hero-content p, .cta-content p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; }
+
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            background: rgba(255,255,255,0.02);
+            border: 1px solid rgba(255,255,255,0.05);
+            padding: 3rem;
+            border-radius: 16px;
+        }
+        .status-item h4 { font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; text-transform: uppercase; color: #94A3B8; margin-bottom: 0.75rem; letter-spacing: 0.05em; }
+        .status-item p { font-size: 1.25rem; font-weight: 500; }
+        .status-dot { display: inline-block; width: 10px; height: 10px; background-color: #10B981; border-radius: 50%; margin-right: 10px; box-shadow: 0 0 12px rgba(16, 185, 129, 0.6); }
+
+        /* Sequential Feature Slides */
+        .feature-split {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+
+        /* Alternate layout for even slides */
+        .slide:nth-child(even) .feature-split {
+            flex-direction: row-reverse;
+        }
+
+        .feature-text { flex: 1; max-width: 550px; position: relative; }
+        
+        .watermark-number {
+            position: absolute;
+            top: -6rem;
+            left: -2rem;
+            font-size: 12rem;
+            font-family: 'Bricolage Grotesque', sans-serif;
+            font-weight: 800;
+            line-height: 1;
+            z-index: -1;
+            opacity: 0.05;
+        }
+        .slide-dark .watermark-number { color: var(--white); opacity: 0.03; }
+
+        .feature-text h2 { font-size: clamp(2.5rem, 4vw, 3.5rem); margin-bottom: 1.5rem; }
+        .feature-text p { font-size: 1.15rem; line-height: 1.7; }
+
+        /* Premium Phone Frame */
+        .feature-visual {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .phone-bezel {
+            width: 280px;
+            background-color: var(--slate-800);
+            border-radius: 40px;
+            padding: 12px;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255,255,255,0.08);
+            position: relative;
+        }
+        
+        .slide-light .phone-bezel { box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.15); border-color: var(--border-light); }
+
+        .phone-bezel img {
+            width: 100%;
+            height: auto;
+            border-radius: 30px;
+            display: block;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+
+        .micro-line {
+            margin-top: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--konga-orange);
+            text-align: center;
+            max-width: 320px;
+        }
+
+        /* Dashboard Slide */
+        .dashboard-ui { background-color: #0F172A; border-radius: 12px; border: 1px solid #334155; overflow: hidden; box-shadow: 0 30px 60px rgba(0,0,0,0.5); }
+        .ui-header { background-color: #1E293B; padding: 1rem 1.5rem; border-bottom: 1px solid #334155; display: flex; gap: 8px; }
+        .ui-header .dot { width: 12px; height: 12px; border-radius: 50%; background-color: #475569; }
+        .ui-body { padding: 2.5rem; font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: #CBD5E1; }
+        .ui-row { display: flex; justify-content: space-between; padding: 1rem 0; border-bottom: 1px dashed #334155; }
+
+        /* Testimonials */
+        .testimonial-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 2rem; }
+        .testimonial-card { padding: 3rem; background: var(--white); border: 1px solid var(--border-light); border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); }
+        .stars { color: var(--market-gold); font-size: 1.5rem; margin-bottom: 1.5rem; }
+        .quote { font-size: 1.25rem; font-style: italic; color: var(--slate-900); margin-bottom: 2rem; }
+        .client-meta { font-family: 'JetBrains Mono', monospace; font-size: 0.9rem; color: var(--text-muted); }
+
+        /* Responsive */
+        @media (max-width: 960px) {
+            .feature-split, .slide:nth-child(even) .feature-split { flex-direction: column; text-align: center; gap: 3rem; }
+            .watermark-number { left: 50%; transform: translateX(-50%); top: -4rem; }
+            .status-grid, .testimonial-grid { grid-template-columns: 1fr; }
+            .phone-bezel { width: 240px; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="awning-top"></div>
+
+    <div class="presentation-wrapper">
+        
+        <!-- Intro Hero -->
+        <section class="slide slide-light" id="start">
+            <div class="container hero-content">
+                <h1>I build the app your business can't launch without — and you watch it happen.</h1>
+                <p class="text-muted">Most of my work comes through referral and I rarely post availability publicly. I'm opening a brief window this month for organizations that need end-to-end development with total visibility.</p>
+                <a href="#availability" class="btn">Check current availability</a>
+            </div>
+        </section>
+
+        <!-- Availability Band -->
+        <section class="slide slide-dark" id="availability">
+            <div class="container">
+                <div class="status-grid">
+                    <div class="status-item">
+                        <h4>Current Intake</h4>
+                        <p><span class="status-dot"></span>Taking on 2 new projects this quarter.</p>
+                    </div>
+                    <div class="status-item">
+                        <h4>Next Public Opening</h4>
+                        <p>October 2026</p>
+                    </div>
+                    <div class="status-item">
+                        <h4>Operational Constraint</h4>
+                        <p>Limits guarantee code quality and direct access.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 01 Search -->
+        <section class="slide slide-light">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">01</div>
+                    <h2>Search that actually understands the request.</h2>
+                    <p class="text-muted">Most developers ship a search bar that matches keywords. This one understands intent — because I only take on builds where I have room to get details like this right. That's exactly why I keep my client list small.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-1.webp" alt="App Search">
+                    </div>
+                    <div class="micro-line">// Built the way it should work, not the way it's fastest to ship.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 02 Personalization -->
+        <section class="slide slide-dark">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">02</div>
+                    <h2>A homepage that learns before your competitors' does.</h2>
+                    <p class="text-muted">Personalization engines like this take real integration time — the earlier you start, the earlier your users start seeing a homepage built around them instead of a generic catalog. Every month without it is a month a competitor's app feels smarter than yours.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-2.webp" alt="App Personalization">
+                    </div>
+                    <div class="micro-line">// The apps that win retention usually shipped this before their category expected it.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 03 Filters -->
+        <section class="slide slide-light">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">03</div>
+                    <h2>Total control, without the clutter.</h2>
+                    <p class="text-muted">Good filtering isn't about adding options — it's about giving users precise control while keeping the interface calm. This is the same principle behind the client dashboard you get when we work together: full visibility and control, none of the overwhelm.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-3.webp" alt="App Filters">
+                    </div>
+                    <div class="micro-line">// Narrow down to exactly right, never lose your place.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 04 Favorites -->
+        <section class="slide slide-dark">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">04</div>
+                    <h2>Small details, built by someone who has time for them.</h2>
+                    <p class="text-muted">A "save for later" button seems simple until you notice the ones that sync instantly, remember state across sessions, and never lose an item. Details like this are what get skipped on rushed builds — which is part of why I only take a couple of projects at a time.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-4.webp" alt="Save Favorites">
+                    </div>
+                    <div class="micro-line">// One tap. It's there when you come back. Every time.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 05 Checkout -->
+        <section class="slide slide-light">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">05</div>
+                    <h2>Checkout built to protect the sale, not just process it.</h2>
+                    <p class="text-muted">Every extra tap at checkout is a chance for someone to abandon their cart. I build checkout flows around what keeps a customer moving forward — because a smoother checkout for your users is directly a better outcome for your business. That alignment is the whole point.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-5.webp" alt="App Checkout">
+                    </div>
+                    <div class="micro-line">// Fewer taps, clear totals, no surprises at the end.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 06 Payment Options -->
+        <section class="slide slide-dark">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">06</div>
+                    <h2>Payment flexibility that clients notice immediately.</h2>
+                    <p class="text-muted" style="font-style: italic;">[Placeholder — replace with a real client quote about payment/checkout experience, e.g.: "Client Name, Company — 'The checkout felt easier than apps three times our size.'"]</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-6.webp" alt="Payment Options">
+                    </div>
+                    <div class="micro-line">// Secure by default, flexible by design.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 07 Real-Time Tracking -->
+        <section class="slide slide-light">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">07</div>
+                    <h2>You never have to ask "is it done yet?"</h2>
+                    <p class="text-muted">This is the same experience you get as a client working with me. No status meetings, no chasing an email — you open a live view and see exactly where things stand. I build that transparency into the products I make because I build it into how I work.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-7.webp" alt="Order Tracking">
+                    </div>
+                    <div class="micro-line">// Confirmed to delivered, visible the whole way.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 08 Order Management -->
+        <section class="slide slide-dark">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">08</div>
+                    <h2>The kind of polish that's usually reserved for referral clients.</h2>
+                    <p class="text-muted">Most of my work comes through word of mouth, and builds at this level of detail don't usually go up for public availability. I'm opening a couple of slots this quarter — this is the standard you'd be getting into.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-8.webp" alt="Order Management">
+                    </div>
+                    <div class="micro-line">// Reorder, track, or resolve — all in one place, no digging.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 09 Deals -->
+        <section class="slide slide-light">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <div class="watermark-number">09</div>
+                    <h2>The window to start this quarter is closing.</h2>
+                    <p class="text-muted">Just like these deals don't sit open indefinitely, project availability doesn't either. If a build like this is something you want in market this year, the timing to start is now, not after the next slot fills.</p>
+                </div>
+                <div class="feature-visual">
+                    <div class="phone-bezel">
+                        <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-9.webp" alt="App Deals">
+                    </div>
+                    <div class="micro-line">// Built to bring users back — the way your project should be timed to bring clients in.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Dashboard Manifesto -->
+        <section class="slide slide-dark">
+            <div class="container feature-split">
+                <div class="feature-text">
+                    <h2>See everything.<br>Chase nothing.</h2>
+                    <p class="text-muted" style="margin-bottom: 1rem;">The standard fear of hiring a developer is losing visibility once the contract is signed. You enter a black box and hope a finished product emerges months later.</p>
+                    <p class="text-muted">I built a dedicated client dashboard to solve this. Real-time project status, milestone tracking, direct messaging, and file handoffs—all in one place.</p>
+                    <p style="color: var(--white); margin-top: 1.5rem; font-weight: 600;">Restrictive access to get on the calendar. Total freedom and transparency once you are in.</p>
+                </div>
+                <div class="feature-visual" style="align-items: stretch;">
+                    <div class="dashboard-ui">
+                        <div class="ui-header">
+                            <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+                        </div>
+                        <div class="ui-body">
+                            <div class="ui-row">
+                                <span>Sprint 04: API Gateway</span>
+                                <span style="color: var(--konga-orange); font-weight: 700;">Active</span>
+                            </div>
+                            <div class="ui-row">
+                                <span>Latest Commit: State manager</span>
+                                <span>2 hrs ago</span>
+                            </div>
+                            <div class="ui-row">
+                                <span>Blockers</span>
+                                <span>None</span>
+                            </div>
+                            <div style="margin-top: 2rem; color: #64748B;">> System nominal. Client view synced.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Social Proof / Testimonials -->
+        <section class="slide slide-light" style="background-color: var(--white);">
+            <div class="container">
+                <div class="testimonial-grid">
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"[Placeholder for actual client quote detailing how the project was delivered on time and the dashboard provided excellent visibility throughout the build.]"</p>
+                        <div class="client-meta">
+                            <strong>[Client Name]</strong><br>[Job Title], [Company Name]
+                        </div>
+                    </div>
+                    <div class="testimonial-card">
+                        <div class="stars">★★★★★</div>
+                        <p class="quote">"[Placeholder for actual client quote focusing on the technical quality of the application and the seamless transition from design to deployment.]"</p>
+                        <div class="client-meta">
+                            <strong>[Client Name]</strong><br>[Job Title], [Company Name]
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Closing CTA -->
+        <section class="slide slide-dark" id="contact">
+            <div class="container cta-content">
+                <h2>Ready to build?</h2>
+                <p class="text-muted">Let's discuss your requirements, review the scope, and ensure our timelines align. You stay informed from the first conversation to the final deployment.</p>
+                <a href="mailto:hello@example.com" class="btn">See if there's an open slot</a>
+            </div>
+        </section>
+
+    </div>
+
+</body>
+</html>
