@@ -3,351 +3,475 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Konga - The All-New Experience</title>
+    <title>App Development & Strategy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
-        /* CSS Variables for seamless theme management */
         :root {
-            --konga-orange: #F7931E; 
-            --konga-orange-dark: #D67D1A;
-            --text-dark: #2C3E50;
-            --text-muted: #596A7A;
-            --bg-white: #FFFFFF;
-            --bg-off-white: #FFF7EE; 
+            --warm-paper: #FAF8F5;
+            --konga-orange: #F7931E;
+            --rust: #C65D0D;
+            --market-gold: #FFC107;
+            --text-main: #1F2937;
+            --text-muted: #4B5563;
+            --white: #FFFFFF;
+            --border-light: #E5E7EB;
         }
 
-        /* Reset and Base Styles */
         * {
-            box-sizing: border-box;
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
 
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
-            color: var(--text-dark);
+            font-family: 'Inter', sans-serif;
+            background-color: var(--warm-paper);
+            color: var(--text-main);
             line-height: 1.6;
-            background-color: var(--bg-white);
-            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased;
         }
 
-        /* Sticky Header */
-        header {
-            background-color: var(--bg-white);
-            padding: 1rem 5%;
-            display: flex;
-            align-items: center;
-            position: sticky;
-            top: 0;
-            z-index: 1000;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        h1, h2, h3, h4 {
+            font-family: 'Bricolage Grotesque', sans-serif;
+            color: var(--text-main);
+            line-height: 1.1;
+            letter-spacing: -0.02em;
         }
 
-        .logo-container img {
-            height: 50px;
-            width: auto;
-            margin-right: 1rem;
+        /* The Awning Motif */
+        .awning-border {
+            height: 12px;
+            width: 100%;
+            background: repeating-linear-gradient(
+                135deg,
+                var(--konga-orange),
+                var(--konga-orange) 20px,
+                var(--white) 20px,
+                var(--white) 40px
+            );
+            border-bottom: 1px solid rgba(0,0,0,0.05);
         }
 
-        .header-title {
-            font-size: 1.5rem;
-            font-weight: 800;
-            color: var(--konga-orange);
-            letter-spacing: -0.5px;
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 5%;
         }
 
-        /* Hero Intro Section */
+        /* Hero Section */
         .hero {
-            background: linear-gradient(135deg, var(--konga-orange) 0%, #FFB04C 100%);
-            color: var(--bg-white);
-            text-align: center;
-            padding: 5rem 2rem;
+            padding: 8rem 0 4rem;
+            max-width: 800px;
         }
 
         .hero h1 {
-            font-size: 2.8rem;
+            font-size: 3.5rem;
             margin-bottom: 1.5rem;
-            line-height: 1.2;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            max-width: 800px;
-            margin: 0 auto;
-            opacity: 0.95;
+            font-size: 1.25rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            max-width: 650px;
         }
 
-        /* Alternating Feature Sections */
-        .feature-section {
-            display: flex;
-            flex-wrap: wrap;
+        .btn {
+            display: inline-flex;
             align-items: center;
-            padding: 6rem 5%;
-            gap: 2rem;
-        }
-
-        /* Seamless transition between sections */
-        .feature-section:nth-child(even) {
-            background-color: var(--bg-off-white);
-            flex-direction: row-reverse;
-        }
-
-        .feature-content {
-            flex: 1;
-            min-width: 300px;
+            justify-content: center;
+            background-color: var(--konga-orange);
+            color: var(--white);
+            font-family: 'Inter', sans-serif;
+            font-weight: 600;
+            text-decoration: none;
             padding: 1rem 2rem;
-        }
-
-        .feature-content h2 {
-            color: var(--konga-orange);
-            font-size: 2.2rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .feature-content p {
-            color: var(--text-muted);
-            font-size: 1.1rem;
-            margin-bottom: 1rem;
-        }
-
-        .feature-content ul {
-            list-style-type: none;
-            margin-top: 1.5rem;
-        }
-
-        .feature-content ul li {
-            position: relative;
-            padding-left: 2rem;
-            margin-bottom: 0.8rem;
-            color: var(--text-muted);
+            border-radius: 4px;
+            transition: background-color 0.2s ease;
+            border: none;
+            cursor: pointer;
             font-size: 1.05rem;
         }
 
-        .feature-content ul li::before {
-            content: "✓";
-            position: absolute;
-            left: 0;
-            color: var(--konga-orange);
-            font-weight: bold;
-            font-size: 1.2rem;
+        .btn:hover {
+            background-color: var(--rust);
         }
 
-        .feature-image {
-            flex: 1;
-            min-width: 300px;
-            text-align: center;
-            position: relative;
+        /* Availability Band */
+        .availability-band {
+            background-color: var(--white);
+            border: 1px solid var(--border-light);
+            border-radius: 8px;
+            padding: 2rem;
+            margin-bottom: 6rem;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            align-items: center;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
         }
 
-        /* App Screenshot Styling */
-        .feature-image img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 20px;
-            box-shadow: 0 20px 40px rgba(247, 147, 30, 0.15);
-            transition: transform 0.4s ease;
+        .status-item h4 {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            color: var(--text-muted);
+            margin-bottom: 0.5rem;
+            letter-spacing: 0.05em;
         }
 
-        .feature-image img:hover {
-            transform: translateY(-10px);
-        }
-
-        /* Call to Action Button */
-        .cta-btn {
-            display: inline-block;
-            background-color: var(--konga-orange);
-            color: var(--bg-white);
-            padding: 1rem 2.5rem;
+        .status-item p {
             font-size: 1.1rem;
-            font-weight: bold;
-            text-decoration: none;
-            border-radius: 50px;
-            margin-top: 1.5rem;
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 10px 20px rgba(247, 147, 30, 0.3);
+            font-weight: 500;
+            color: var(--text-main);
         }
 
-        .cta-btn:hover {
-            background-color: var(--konga-orange-dark);
-            transform: scale(1.05);
+        .status-item .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background-color: #10B981;
+            border-radius: 50%;
+            margin-right: 8px;
         }
 
-        .cta-btn-white {
-            background-color: var(--bg-white);
+        /* Case Study Section */
+        .case-study {
+            padding: 6rem 0;
+            border-top: 1px solid var(--border-light);
+        }
+
+        .section-header {
+            margin-bottom: 4rem;
+        }
+
+        .section-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .grid-2 {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 4rem;
+            align-items: start;
+        }
+
+        .cs-content h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--rust);
+        }
+
+        .cs-content p {
+            margin-bottom: 1.5rem;
+            color: var(--text-muted);
+        }
+
+        .tech-stack {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.9rem;
+            color: var(--text-main);
+            background: var(--white);
+            padding: 1rem;
+            border: 1px solid var(--border-light);
+            border-radius: 4px;
+            margin-top: 2rem;
+        }
+
+        .cs-images {
+            display: grid;
+            gap: 2rem;
+        }
+
+        .cs-images img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            border: 1px solid var(--border-light);
+        }
+
+        /* Dashboard Section */
+        .dashboard-section {
+            background-color: var(--text-main);
+            color: var(--white);
+            padding: 8rem 0;
+            margin: 4rem 0;
+        }
+
+        .dashboard-section h2 {
+            color: var(--white);
+        }
+
+        .dashboard-section p {
+            color: #9CA3AF;
+        }
+
+        .dashboard-grid {
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .dashboard-ui-mockup {
+            background-color: #374151;
+            border-radius: 8px;
+            border: 1px solid #4B5563;
+            overflow: hidden;
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+        }
+
+        .dashboard-ui-header {
+            background-color: #1F2937;
+            padding: 1rem;
+            border-bottom: 1px solid #4B5563;
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background-color: #4B5563;
+        }
+
+        .dashboard-ui-body {
+            padding: 2rem;
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: #D1D5DB;
+        }
+
+        .ui-line {
+            display: flex;
+            justify-content: space-between;
+            padding: 0.75rem 0;
+            border-bottom: 1px solid #4B5563;
+        }
+
+        .ui-status {
             color: var(--konga-orange);
         }
 
-        /* Footer */
-        footer {
-            background-color: var(--text-dark);
-            color: var(--bg-white);
-            text-align: center;
-            padding: 3rem 1rem;
+        /* Philosophy Section */
+        .philosophy {
+            padding: 6rem 0;
+            max-width: 800px;
         }
 
-        /* Responsive Design */
+        .philosophy p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+        }
+
+        /* Testimonials */
+        .testimonials {
+            padding: 6rem 0;
+            background-color: var(--white);
+            border-top: 1px solid var(--border-light);
+            border-bottom: 1px solid var(--border-light);
+        }
+
+        .testimonial-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+        }
+
+        .testimonial-card {
+            padding: 2rem;
+            background: var(--warm-paper);
+            border-radius: 8px;
+            border: 1px solid var(--border-light);
+        }
+
+        .stars {
+            color: var(--market-gold);
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+        }
+
+        .quote {
+            font-size: 1.1rem;
+            font-style: italic;
+            color: var(--text-main);
+            margin-bottom: 1.5rem;
+        }
+
+        .client-meta {
+            font-family: 'JetBrains Mono', monospace;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+        }
+
+        /* Footer CTA */
+        .closing-cta {
+            padding: 8rem 0;
+            text-align: center;
+        }
+
+        .closing-cta h2 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
         @media (max-width: 768px) {
-            .feature-section, 
-            .feature-section:nth-child(even) {
-                flex-direction: column;
-                text-align: center;
-                padding: 4rem 5%;
-            }
-            .feature-content ul li {
-                text-align: left;
-                display: inline-block;
-                width: 100%;
-            }
-            .feature-content ul li::before {
-                left: -1.5rem;
-            }
-            .feature-content ul {
-                display: inline-block;
-                text-align: left;
-                padding-left: 1.5rem;
-            }
+            .hero h1 { font-size: 2.5rem; }
+            .grid-2, .dashboard-grid { grid-template-columns: 1fr; }
+            .dashboard-section { padding: 4rem 0; }
         }
     </style>
 </head>
 <body>
 
-    <header>
-        <div class="logo-container">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/logo.webp" alt="Konga Logo"> 
-        </div>
-        <div class="header-title">Konga</div>
-    </header>
+    <div class="awning-border"></div>
 
-    <section class="hero">
-        <h1>Welcome to the all-new Konga experience.</h1>
-        <p>Konga is Nigeria's trusted digital commerce platform, designed to make shopping simpler, smarter, and more rewarding. Built around trust, convenience, and value, Konga helps you discover more, shop with confidence, and save every day.</p>
-        <a href="#download" class="cta-btn cta-btn-white">Explore the App</a>
-    </section>
+    <main class="container">
+        <section class="hero">
+            <h1>I build the app your business can't launch without — and you watch it happen.</h1>
+            <p>Most of my work comes through referral and I rarely post availability publicly. I'm opening a brief window this month for organizations that need end-to-end development with total visibility.</p>
+            <a href="#availability" class="btn">Check current availability</a>
+        </section>
 
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>Discover Everything You Need</h2>
-            <p>Explore a wide selection of products across electronics, mobile phones, computing, fashion, groceries, beauty, home and kitchen, appliances, baby products, office essentials, gaming, sports and fitness, automotive accessories, health and wellness, and so much more.</p>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-1.webp" alt="Konga Categories">
-        </div>
-    </section>
+        <section id="availability" class="availability-band">
+            <div class="status-item">
+                <h4>Current Intake</h4>
+                <p><span class="status-dot"></span>Taking on 2 new projects this quarter.</p>
+            </div>
+            <div class="status-item">
+                <h4>Next Public Opening</h4>
+                <p>October 2026</p>
+            </div>
+            <div class="status-item">
+                <h4>Operational Constraint</h4>
+                <p>Limits guarantee code quality and direct access.</p>
+            </div>
+        </section>
 
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>The Brands You Love, In One Place</h2>
-            <p>Whether you're buying everyday essentials, upgrading your technology, refreshing your wardrobe, furnishing your home, or shopping for your business, Konga brings together authentic products from life's biggest purchases down to your daily needs.</p>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-2.webp" alt="Konga Brands">
-        </div>
-    </section>
+        <section class="case-study">
+            <div class="section-header">
+                <h2>Case Study: Konga</h2>
+                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px;">Nigeria's trusted digital commerce platform needed an application experience as reliable as their logistics network.</p>
+            </div>
+            
+            <div class="grid-2">
+                <div class="cs-content">
+                    <h3>The Problem</h3>
+                    <p>Konga facilitates massive daily transaction volume across electronics, fashion, groceries, and essential goods. The challenge was building an interface that handles extreme categorization complexity without overwhelming the user, while maintaining absolute security during checkout.</p>
+                    
+                    <h3>The Approach</h3>
+                    <p>We designed a robust, scalable front-end architecture utilizing a unified token system. The visual language heavily anchors on "Konga Orange" and crisp, accessible typography to guide the user's eye naturally toward search and filtering tools—reducing friction from discovery to purchase.</p>
 
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>A Smarter Way to Shop</h2>
-            <p>Designed around the way you shop, the Konga app makes every experience effortless. We bring you trusted sellers, secure payments, and reliable nationwide delivery—all in one seamless app experience.</p>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-3.webp" alt="Smarter Way to Shop">
-        </div>
-    </section>
+                    <h3>The Result</h3>
+                    <p>A seamless, highly responsive digital environment that feels lightweight but performs like heavy infrastructure. Intelligent search, real-time order management, and secure payment gateways integrated flawlessly.</p>
 
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>Intelligent & Personalized</h2>
-            <p>Every feature is built to help you spend less time searching and more time enjoying what matters. Enjoy seamless digital tools directly at your fingertips.</p>
-            <ul>
-                <li>Fast and intelligent search</li>
-                <li>Personalized recommendations</li>
-                <li>Smart filters to help you find exactly what you need</li>
-                <li>Save your favourites for later</li>
-            </ul>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-4.webp" alt="App Search and Filters">
-        </div>
-    </section>
+                    <div class="tech-stack">
+                        Deployment: End-to-end frontend architecture<br>
+                        Focus: E-commerce routing, secure state management<br>
+                        Theme: Custom tokenized design system
+                    </div>
+                </div>
+                
+                <div class="cs-images">
+                    <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-1.webp" alt="Konga App Interface Showing Categories">
+                    <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-3.webp" alt="Konga App Interface Showing Search and Navigation">
+                </div>
+            </div>
+        </section>
+    </main>
 
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>Easy Order Management</h2>
-            <p>From the moment you add to cart until the package arrives at your door, Konga keeps you updated and fully in control of your purchases.</p>
-            <ul>
-                <li>Secure, simple checkout</li>
-                <li>Multiple payment options</li>
-                <li>Real-time order tracking</li>
-                <li>Easy order management</li>
-            </ul>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-5.webp" alt="Order Management and Checkout">
-        </div>
-    </section>
-
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>Shop with Confidence</h2>
-            <p>Trust is at the heart of everything we do. Because every purchase should feel as confident as it is convenient, we've built a robust system to protect you.</p>
-            <ul>
-                <li>Verified trusted sellers</li>
-                <li>100% authentic products</li>
-                <li>Secure payment experiences</li>
-            </ul>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-6.webp" alt="Trusted Sellers and Authenticity">
-        </div>
-    </section>
-
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>Reliable Nationwide Service</h2>
-            <p>No matter where you are in Nigeria, we deliver. Backed by real customer feedback and a dedicated support team, you are never shopping alone.</p>
-            <ul>
-                <li>Verified customer ratings and reviews</li>
-                <li>Reliable nationwide delivery</li>
-                <li>Responsive customer support</li>
-            </ul>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-7.webp" alt="Nationwide Delivery and Support">
+    <section class="dashboard-section">
+        <div class="container dashboard-grid">
+            <div>
+                <h2>See everything, chase nothing.</h2>
+                <br>
+                <p>The standard fear of hiring a developer is losing visibility once the contract is signed. You enter a black box and hope a finished product emerges months later.</p>
+                <br>
+                <p>I built a dedicated client dashboard to solve this. Real-time project status, milestone tracking, direct messaging, and file handoffs—all in one place. You are not waiting on a Friday afternoon email to know what is happening. You open the dashboard and see it.</p>
+                <br>
+                <p>Restrictive access to get on the calendar. Total freedom and transparency once you are in.</p>
+            </div>
+            
+            <div class="dashboard-ui-mockup">
+                <div class="dashboard-ui-header">
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                    <div class="dot"></div>
+                </div>
+                <div class="dashboard-ui-body">
+                    <div class="ui-line">
+                        <span>Sprint 04: Payment Gateway Integration</span>
+                        <span class="ui-status">Active</span>
+                    </div>
+                    <div class="ui-line">
+                        <span>Latest Commit: Refactored cart state manager</span>
+                        <span>2 hrs ago</span>
+                    </div>
+                    <div class="ui-line">
+                        <span>Blockers</span>
+                        <span>None</span>
+                    </div>
+                    <div class="ui-line">
+                        <span>Next Milestone: Staging Environment V1.2</span>
+                        <span>Due Friday</span>
+                    </div>
+                    <br>
+                    <div style="color: #9CA3AF;">> System nominal. Client view updated.</div>
+                </div>
+            </div>
         </div>
     </section>
 
-    <section class="feature-section">
-        <div class="feature-content">
-            <h2>More Value, Every Day</h2>
-            <p>Great value isn't occasional—it's part of every Konga experience. Discover new ways to maximize your budget and save on the items you love.</p>
-            <ul>
-                <li>Exclusive App-Only Deals</li>
-                <li>Daily Deals & Seasonal Campaigns</li>
-                <li>Brand Promotions</li>
-                <li>Curated Collections</li>
-            </ul>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-8.webp" alt="Konga Deals and Value">
+    <main class="container">
+        <section class="philosophy">
+            <h2>Why the number is small.</h2>
+            <br>
+            <p>I only take projects I am confident I can deliver exceptionally well. I do not outsource your code to junior devs, and I do not split my focus across a dozen concurrent builds. That is why the capacity is capped.</p>
+            <p>The limit protects my calendar, but more importantly, it protects your investment. The apps that win their market category are usually the ones that ship cleanly and securely before the space gets crowded. The cost of waiting for a bloated agency to assign you an account manager is a closing market window.</p>
+            <p>When we work together, we move fast, and we move with precision.</p>
+        </section>
+    </main>
+
+    <section class="testimonials">
+        <div class="container">
+            <div class="testimonial-grid">
+                
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"[Placeholder for actual client quote detailing how the project was delivered on time and the dashboard provided excellent visibility throughout the build.]"</p>
+                    <div class="client-meta">
+                        <strong>[Client Name]</strong><br>
+                        [Job Title], [Company Name]
+                    </div>
+                </div>
+
+                <div class="testimonial-card">
+                    <div class="stars">★★★★★</div>
+                    <p class="quote">"[Placeholder for actual client quote focusing on the technical quality of the application and the seamless transition from design to deployment.]"</p>
+                    <div class="client-meta">
+                        <strong>[Client Name]</strong><br>
+                        [Job Title], [Company Name]
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
-    <section class="feature-section" id="download">
-        <div class="feature-content">
-            <h2>Always Getting Better</h2>
-            <p>We're constantly improving the Konga app with faster performance, smarter search, enhanced personalization, improved navigation, and new features inspired by our customers.</p>
-            <p><strong>Our goal is simple:</strong> to create Nigeria's most trusted and enjoyable digital commerce experience.</p>
-            <a href="#" class="cta-btn">Download the App Today</a>
-        </div>
-        <div class="feature-image">
-            <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-9.webp" alt="Download Konga App">
-        </div>
-    </section>
+    <main class="container closing-cta">
+        <h2>Ready to build?</h2>
+        <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
+            Let's discuss your requirements, review the scope, and ensure our timelines align. You stay informed from the first conversation to the final deployment.
+        </p>
+        <a href="#contact-booking" class="btn">See if there's an open slot</a>
+    </main>
 
-    <footer>
-        <p><strong>Konga.</strong> Where Nigeria Shops with Confidence.</p>
-        <p style="margin-top: 10px; font-size: 0.9rem; color: #aaa;">© 2026 Konga Online Marketplace. All rights reserved.</p>
-    </footer>
+    <div class="awning-border"></div>
 
 </body>
 </html>
