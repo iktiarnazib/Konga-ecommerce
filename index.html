@@ -1,477 +1,118 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>App Development & Strategy</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --warm-paper: #FAF8F5;
-            --konga-orange: #F7931E;
-            --rust: #C65D0D;
-            --market-gold: #FFC107;
-            --text-main: #1F2937;
-            --text-muted: #4B5563;
-            --white: #FFFFFF;
-            --border-light: #E5E7EB;
-        }
+Nine Feature Sections — Screenshot-by-Screenshot Copy (Persuasion-Tactic Mapped)
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+Each section below corresponds to one screenshot (picture-1.webp through picture-9.webp). Every section pairs the feature shown with one primary persuasion tactic, so the page builds a full case for hiring you as it scrolls — not just a feature tour. Tactic is labeled so you can see the mechanism; drop the label before shipping (it's for your reference, not for the visitor).
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--warm-paper);
-            color: var(--text-main);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-        }
 
-        h1, h2, h3, h4 {
-            font-family: 'Bricolage Grotesque', sans-serif;
-            color: var(--text-main);
-            line-height: 1.1;
-            letter-spacing: -0.02em;
-        }
+01 — Search (picture-1.webp)
 
-        /* The Awning Motif */
-        .awning-border {
-            height: 12px;
-            width: 100%;
-            background: repeating-linear-gradient(
-                135deg,
-                var(--konga-orange),
-                var(--konga-orange) 20px,
-                var(--white) 20px,
-                var(--white) 40px
-            );
-            border-bottom: 1px solid rgba(0,0,0,0.05);
-        }
+Tactic: Exclusivity, reframed as quality control.
 
-        .container {
-            max-width: 1100px;
-            margin: 0 auto;
-            padding: 0 5%;
-        }
 
-        /* Hero Section */
-        .hero {
-            padding: 8rem 0 4rem;
-            max-width: 800px;
-        }
+Headline: Search that actually understands the request.
+Body: Most developers ship a search bar that matches keywords. This one understands intent — because I only take on builds where I have room to get details like this right. That's exactly why I keep my client list small.
+Micro-line under image: Built the way it should work, not the way it's fastest to ship.
 
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1.5rem;
-        }
 
-        .hero p {
-            font-size: 1.25rem;
-            color: var(--text-muted);
-            margin-bottom: 2.5rem;
-            max-width: 650px;
-        }
 
-        .btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            background-color: var(--konga-orange);
-            color: var(--white);
-            font-family: 'Inter', sans-serif;
-            font-weight: 600;
-            text-decoration: none;
-            padding: 1rem 2rem;
-            border-radius: 4px;
-            transition: background-color 0.2s ease;
-            border: none;
-            cursor: pointer;
-            font-size: 1.05rem;
-        }
 
-        .btn:hover {
-            background-color: var(--rust);
-        }
+02 — Personalized Recommendations (picture-2.webp)
 
-        /* Availability Band */
-        .availability-band {
-            background-color: var(--white);
-            border: 1px solid var(--border-light);
-            border-radius: 8px;
-            padding: 2rem;
-            margin-bottom: 6rem;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            align-items: center;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
-        }
+Tactic: FOMO, tied to cost of waiting.
 
-        .status-item h4 {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            color: var(--text-muted);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.05em;
-        }
 
-        .status-item p {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: var(--text-main);
-        }
+Headline: A homepage that learns before your competitors' does.
+Body: Personalization engines like this take real integration time — the earlier you start, the earlier your users start seeing a homepage built around them instead of a generic catalog. Every month without it is a month a competitor's app feels smarter than yours.
+Micro-line under image: The apps that win retention usually shipped this before their category expected it.
 
-        .status-item .status-dot {
-            display: inline-block;
-            width: 8px;
-            height: 8px;
-            background-color: #10B981;
-            border-radius: 50%;
-            margin-right: 8px;
-        }
 
-        /* Case Study Section */
-        .case-study {
-            padding: 6rem 0;
-            border-top: 1px solid var(--border-light);
-        }
 
-        .section-header {
-            margin-bottom: 4rem;
-        }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1rem;
-        }
+03 — Smart Filters (picture-3.webp)
 
-        .grid-2 {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: start;
-        }
+Tactic: The dashboard-as-freedom principle, applied to UI control.
 
-        .cs-content h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: var(--rust);
-        }
 
-        .cs-content p {
-            margin-bottom: 1.5rem;
-            color: var(--text-muted);
-        }
+Headline: Total control, without the clutter.
+Body: Good filtering isn't about adding options — it's about giving users precise control while keeping the interface calm. This is the same principle behind the client dashboard you get when we work together: full visibility and control, none of the overwhelm.
+Micro-line under image: Narrow down to exactly right, never lose your place.
 
-        .tech-stack {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.9rem;
-            color: var(--text-main);
-            background: var(--white);
-            padding: 1rem;
-            border: 1px solid var(--border-light);
-            border-radius: 4px;
-            margin-top: 2rem;
-        }
 
-        .cs-images {
-            display: grid;
-            gap: 2rem;
-        }
 
-        .cs-images img {
-            width: 100%;
-            border-radius: 8px;
-            box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border-light);
-        }
 
-        /* Dashboard Section */
-        .dashboard-section {
-            background-color: var(--text-main);
-            color: var(--white);
-            padding: 8rem 0;
-            margin: 4rem 0;
-        }
+04 — Save Favourites (picture-4.webp)
 
-        .dashboard-section h2 {
-            color: var(--white);
-        }
+Tactic: Scarcity — framed as protecting quality, not manufacturing hype.
 
-        .dashboard-section p {
-            color: #9CA3AF;
-        }
 
-        .dashboard-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            align-items: center;
-        }
+Headline: Small details, built by someone who has time for them.
+Body: A "save for later" button seems simple until you notice the ones that sync instantly, remember state across sessions, and never lose an item. Details like this are what get skipped on rushed builds — which is part of why I only take a couple of projects at a time.
+Micro-line under image: One tap. It's there when you come back. Every time.
 
-        .dashboard-ui-mockup {
-            background-color: #374151;
-            border-radius: 8px;
-            border: 1px solid #4B5563;
-            overflow: hidden;
-            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
-        }
 
-        .dashboard-ui-header {
-            background-color: #1F2937;
-            padding: 1rem;
-            border-bottom: 1px solid #4B5563;
-            display: flex;
-            gap: 8px;
-        }
 
-        .dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background-color: #4B5563;
-        }
 
-        .dashboard-ui-body {
-            padding: 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: #D1D5DB;
-        }
+05 — Secure, Simple Checkout (picture-5.webp)
 
-        .ui-line {
-            display: flex;
-            justify-content: space-between;
-            padding: 0.75rem 0;
-            border-bottom: 1px solid #4B5563;
-        }
+Tactic: Client's best interest, stated plainly.
 
-        .ui-status {
-            color: var(--konga-orange);
-        }
 
-        /* Philosophy Section */
-        .philosophy {
-            padding: 6rem 0;
-            max-width: 800px;
-        }
+Headline: Checkout built to protect the sale, not just process it.
+Body: Every extra tap at checkout is a chance for someone to abandon their cart. I build checkout flows around what keeps a customer moving forward — because a smoother checkout for your users is directly a better outcome for your business. That alignment is the whole point.
+Micro-line under image: Fewer taps, clear totals, no surprises at the end.
 
-        .philosophy p {
-            font-size: 1.2rem;
-            color: var(--text-muted);
-            margin-bottom: 1.5rem;
-        }
 
-        /* Testimonials */
-        .testimonials {
-            padding: 6rem 0;
-            background-color: var(--white);
-            border-top: 1px solid var(--border-light);
-            border-bottom: 1px solid var(--border-light);
-        }
 
-        .testimonial-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-        }
 
-        .testimonial-card {
-            padding: 2rem;
-            background: var(--warm-paper);
-            border-radius: 8px;
-            border: 1px solid var(--border-light);
-        }
+06 — Multiple Payment Options (picture-6.webp)
 
-        .stars {
-            color: var(--market-gold);
-            font-size: 1.25rem;
-            margin-bottom: 1rem;
-        }
+Tactic: Social proof — structured placeholder, no fabricated claim.
 
-        .quote {
-            font-size: 1.1rem;
-            font-style: italic;
-            color: var(--text-main);
-            margin-bottom: 1.5rem;
-        }
 
-        .client-meta {
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            color: var(--text-muted);
-        }
+Headline: Payment flexibility that clients notice immediately.
+Body: [Placeholder — replace with a real client quote about payment/checkout experience, e.g.: "Client Name, Company — 'The checkout felt easier than apps three times our size.'"]
+Micro-line under image: Secure by default, flexible by design.
 
-        /* Footer CTA */
-        .closing-cta {
-            padding: 8rem 0;
-            text-align: center;
-        }
 
-        .closing-cta h2 {
-            font-size: 3rem;
-            margin-bottom: 1.5rem;
-        }
 
-        @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .grid-2, .dashboard-grid { grid-template-columns: 1fr; }
-            .dashboard-section { padding: 4rem 0; }
-        }
-    </style>
-</head>
-<body>
+(Note: keep this bracketed placeholder visible in your working draft; swap in an actual client quote before publishing. Don't ship a specific attributed review that didn't happen.)
 
-    <div class="awning-border"></div>
 
-    <main class="container">
-        <section class="hero">
-            <h1>I build the app your business can't launch without — and you watch it happen.</h1>
-            <p>Most of my work comes through referral and I rarely post availability publicly. I'm opening a brief window this month for organizations that need end-to-end development with total visibility.</p>
-            <a href="#availability" class="btn">Check current availability</a>
-        </section>
+07 — Real-Time Order Tracking (picture-7.webp)
 
-        <section id="availability" class="availability-band">
-            <div class="status-item">
-                <h4>Current Intake</h4>
-                <p><span class="status-dot"></span>Taking on 2 new projects this quarter.</p>
-            </div>
-            <div class="status-item">
-                <h4>Next Public Opening</h4>
-                <p>October 2026</p>
-            </div>
-            <div class="status-item">
-                <h4>Operational Constraint</h4>
-                <p>Limits guarantee code quality and direct access.</p>
-            </div>
-        </section>
+Tactic: Dashboard-as-freedom — the clearest match of any section.
 
-        <section class="case-study">
-            <div class="section-header">
-                <h2>Case Study: Konga</h2>
-                <p style="color: var(--text-muted); font-size: 1.2rem; max-width: 600px;">Nigeria's trusted digital commerce platform needed an application experience as reliable as their logistics network.</p>
-            </div>
-            
-            <div class="grid-2">
-                <div class="cs-content">
-                    <h3>The Problem</h3>
-                    <p>Konga facilitates massive daily transaction volume across electronics, fashion, groceries, and essential goods. The challenge was building an interface that handles extreme categorization complexity without overwhelming the user, while maintaining absolute security during checkout.</p>
-                    
-                    <h3>The Approach</h3>
-                    <p>We designed a robust, scalable front-end architecture utilizing a unified token system. The visual language heavily anchors on "Konga Orange" and crisp, accessible typography to guide the user's eye naturally toward search and filtering tools—reducing friction from discovery to purchase.</p>
 
-                    <h3>The Result</h3>
-                    <p>A seamless, highly responsive digital environment that feels lightweight but performs like heavy infrastructure. Intelligent search, real-time order management, and secure payment gateways integrated flawlessly.</p>
+Headline: You never have to ask "is it done yet?"
+Body: This is the same experience you get as a client working with me. No status meetings, no chasing an email — you open a live view and see exactly where things stand. I build that transparency into the products I make because I build it into how I work.
+Micro-line under image: Confirmed to delivered, visible the whole way.
 
-                    <div class="tech-stack">
-                        Deployment: End-to-end frontend architecture<br>
-                        Focus: E-commerce routing, secure state management<br>
-                        Theme: Custom tokenized design system
-                    </div>
-                </div>
-                
-                <div class="cs-images">
-                    <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-1.webp" alt="Konga App Interface Showing Categories">
-                    <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-3.webp" alt="Konga App Interface Showing Search and Navigation">
-                </div>
-            </div>
-        </section>
-    </main>
 
-    <section class="dashboard-section">
-        <div class="container dashboard-grid">
-            <div>
-                <h2>See everything, chase nothing.</h2>
-                <br>
-                <p>The standard fear of hiring a developer is losing visibility once the contract is signed. You enter a black box and hope a finished product emerges months later.</p>
-                <br>
-                <p>I built a dedicated client dashboard to solve this. Real-time project status, milestone tracking, direct messaging, and file handoffs—all in one place. You are not waiting on a Friday afternoon email to know what is happening. You open the dashboard and see it.</p>
-                <br>
-                <p>Restrictive access to get on the calendar. Total freedom and transparency once you are in.</p>
-            </div>
-            
-            <div class="dashboard-ui-mockup">
-                <div class="dashboard-ui-header">
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                    <div class="dot"></div>
-                </div>
-                <div class="dashboard-ui-body">
-                    <div class="ui-line">
-                        <span>Sprint 04: Payment Gateway Integration</span>
-                        <span class="ui-status">Active</span>
-                    </div>
-                    <div class="ui-line">
-                        <span>Latest Commit: Refactored cart state manager</span>
-                        <span>2 hrs ago</span>
-                    </div>
-                    <div class="ui-line">
-                        <span>Blockers</span>
-                        <span>None</span>
-                    </div>
-                    <div class="ui-line">
-                        <span>Next Milestone: Staging Environment V1.2</span>
-                        <span>Due Friday</span>
-                    </div>
-                    <br>
-                    <div style="color: #9CA3AF;">> System nominal. Client view updated.</div>
-                </div>
-            </div>
-        </div>
-    </section>
 
-    <main class="container">
-        <section class="philosophy">
-            <h2>Why the number is small.</h2>
-            <br>
-            <p>I only take projects I am confident I can deliver exceptionally well. I do not outsource your code to junior devs, and I do not split my focus across a dozen concurrent builds. That is why the capacity is capped.</p>
-            <p>The limit protects my calendar, but more importantly, it protects your investment. The apps that win their market category are usually the ones that ship cleanly and securely before the space gets crowded. The cost of waiting for a bloated agency to assign you an account manager is a closing market window.</p>
-            <p>When we work together, we move fast, and we move with precision.</p>
-        </section>
-    </main>
 
-    <section class="testimonials">
-        <div class="container">
-            <div class="testimonial-grid">
-                
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"[Placeholder for actual client quote detailing how the project was delivered on time and the dashboard provided excellent visibility throughout the build.]"</p>
-                    <div class="client-meta">
-                        <strong>[Client Name]</strong><br>
-                        [Job Title], [Company Name]
-                    </div>
-                </div>
+08 — Easy Order Management (picture-8.webp)
 
-                <div class="testimonial-card">
-                    <div class="stars">★★★★★</div>
-                    <p class="quote">"[Placeholder for actual client quote focusing on the technical quality of the application and the seamless transition from design to deployment.]"</p>
-                    <div class="client-meta">
-                        <strong>[Client Name]</strong><br>
-                        [Job Title], [Company Name]
-                    </div>
-                </div>
+Tactic: Exclusivity reframed as a newly-open opportunity.
 
-            </div>
-        </div>
-    </section>
 
-    <main class="container closing-cta">
-        <h2>Ready to build?</h2>
-        <p style="font-size: 1.25rem; color: var(--text-muted); margin-bottom: 2.5rem; max-width: 600px; margin-left: auto; margin-right: auto;">
-            Let's discuss your requirements, review the scope, and ensure our timelines align. You stay informed from the first conversation to the final deployment.
-        </p>
-        <a href="#contact-booking" class="btn">See if there's an open slot</a>
-    </main>
+Headline: The kind of polish that's usually reserved for referral clients.
+Body: Most of my work comes through word of mouth, and builds at this level of detail don't usually go up for public availability. I'm opening a couple of slots this quarter — this is the standard you'd be getting into.
+Micro-line under image: Reorder, track, or resolve — all in one place, no digging.
 
-    <div class="awning-border"></div>
 
-</body>
-</html>
+
+
+09 — Daily Deals / App-Only Offers (picture-9.webp)
+
+Tactic: FOMO + Scarcity combined — the closing push before the final CTA.
+
+
+Headline: The window to start this quarter is closing.
+Body: Just like these deals don't sit open indefinitely, project availability doesn't either. If a build like this is something you want in market this year, the timing to start is now, not after the next slot fills.
+Micro-line under image: Built to bring users back — the way your project should be timed to bring clients in.
+
+
+
+
+Placement Note
+
+Keep the alternating image-left/image-right layout and the 01–09 numbering from the original build prompt — the numbering still reads as a real sequence (a shopper's journey through the app), and now it doubles as a rising case for hiring you, ending on the two hardest-closing tactics (08 and 09) right before your final CTA section.
