@@ -103,6 +103,7 @@
         .delay-2 { transition-delay: 0.2s; }
         .delay-3 { transition-delay: 0.3s; }
         .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
 
         /* -------------------------------------
            SLIDE 1: Cinematic Cover 
@@ -112,34 +113,80 @@
             background-image: 
                 radial-gradient(circle at 50% 0%, rgba(247, 147, 30, 0.15) 0%, transparent 50%),
                 linear-gradient(to bottom, transparent, var(--slate-950) 80%);
+            position: relative;
         }
+
+        /* Dynamic Floating Gallery */
+        .floating-gallery {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            overflow: hidden;
+            z-index: 1; /* Sits behind the text */
+            pointer-events: none;
+        }
+        .floating-gallery img {
+            position: absolute;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            animation: drift ease-in-out infinite alternate;
+        }
+        
+        /* Keyframes for organic drifting */
+        @keyframes drift {
+            0% { transform: translate(0, 0) rotate(0deg); }
+            100% { transform: translate(30px, -40px) rotate(4deg); }
+        }
+
+        /* Individual screenshot placement and properties */
+        .img-1 { width: 280px; top: -5%; left: -2%; opacity: 0.08; filter: blur(2px); animation-duration: 25s; }
+        .img-2 { width: 340px; top: 15%; right: -5%; opacity: 0.05; filter: blur(4px); animation-duration: 32s; animation-delay: -5s; }
+        .img-3 { width: 200px; bottom: 10%; left: 5%; opacity: 0.12; animation-duration: 22s; animation-delay: -2s; }
+        .img-4 { width: 240px; top: 40%; left: 15%; opacity: 0.06; filter: blur(1px); animation-duration: 28s; animation-delay: -10s; }
+        .img-5 { width: 300px; bottom: -15%; right: 10%; opacity: 0.08; filter: blur(3px); animation-duration: 35s; animation-delay: -15s; }
+        .img-6 { width: 180px; top: 5%; left: 45%; opacity: 0.09; animation-duration: 20s; animation-delay: -7s; }
+        .img-7 { width: 260px; bottom: 25%; left: 35%; opacity: 0.04; filter: blur(2px); animation-duration: 27s; animation-delay: -12s; }
+        .img-8 { width: 220px; top: 25%; right: 25%; opacity: 0.07; animation-duration: 30s; animation-delay: -4s; }
+        .img-9 { width: 290px; top: 60%; right: 5%; opacity: 0.06; filter: blur(1px); animation-duration: 24s; animation-delay: -9s; }
+
         .cover-content {
             text-align: center;
             display: flex;
             flex-direction: column;
             align-items: center;
             max-width: 1000px;
+            /* Exactly scale the whole content to 80% as requested */
+            transform: scale(0.8);
+            transform-origin: center;
+            z-index: 2; /* Ensures text is clickable and above images */
         }
         .cover-logo {
-            height: 80px;
+            height: 100px;
             width: auto;
             margin-bottom: 2.5rem;
             filter: drop-shadow(0 10px 20px rgba(0,0,0,0.5));
         }
         .cover-content h1 {
-            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-size: clamp(3.5rem, 6vw, 6rem);
             margin-bottom: 1.5rem;
             color: var(--white);
             line-height: 1.1;
         }
         .cover-content .accent-text { color: var(--konga-orange); }
-        .cover-content p {
+        .cover-content p.subtitle {
             font-size: 1.25rem;
             font-family: 'JetBrains Mono', monospace;
             color: #94A3B8;
             text-transform: uppercase;
             letter-spacing: 0.1em;
-            margin-bottom: 3rem;
+            margin-bottom: 3.5rem;
+        }
+        .cover-content p.store-text {
+            margin-top: 2.5rem;
+            font-size: 1.1rem;
+            color: #64748B;
+            letter-spacing: 0.5px;
+            font-family: 'Inter', sans-serif;
+            font-weight: 500;
         }
 
         /* Buttons */
@@ -154,7 +201,7 @@
             padding: 1.25rem 3rem;
             border-radius: 50px;
             transition: all 0.3s ease;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
             box-shadow: 0 10px 25px -5px rgba(247, 147, 30, 0.4);
             border: none;
             cursor: pointer;
@@ -170,23 +217,11 @@
         /* -------------------------------------
            Screenshot-Focused Layout
         ------------------------------------- */
-        .feature-split { 
-            display: flex; 
-            align-items: center; 
-            justify-content: space-between; 
-            gap: 4rem; 
-            height: 100%; 
-        }
-        /* Flip layout for even slides */
+        .feature-split { display: flex; align-items: center; justify-content: space-between; gap: 4rem; height: 100%; }
         .slide:nth-child(even) .feature-split { flex-direction: row-reverse; }
 
-        /* Text Section (Smaller) */
-        .feature-text { 
-            flex: 1; 
-            max-width: 480px; /* Constrain text to give images more room */
-        }
+        .feature-text { flex: 1; max-width: 480px; }
         
-        /* New Slide Indicator (Replaces overlapping watermark) */
         .slide-indicator {
             display: inline-flex;
             align-items: center;
@@ -206,46 +241,21 @@
         .feature-text h2 { font-size: clamp(2.2rem, 4vw, 3.2rem); margin-bottom: 1.5rem; line-height: 1.1; }
         .feature-text p { font-size: 1.1rem; line-height: 1.7; font-weight: 400; }
 
-        /* Visual Section (Massive) */
-        .feature-visual { 
-            flex: 1.2; /* Favor image size */
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            justify-content: center; 
-        }
+        .feature-visual { flex: 1.2; display: flex; flex-direction: column; align-items: center; justify-content: center; }
         
         .phone-bezel {
             width: 100%;
-            max-width: 380px; /* Increased dramatically from 260px */
+            max-width: 380px;
             background-color: var(--slate-950);
             border-radius: 44px;
-            padding: 10px; /* Thinner bezel to show more UI */
+            padding: 10px;
             box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.6);
             border: 1px solid rgba(255,255,255,0.08);
         }
-        .slide-light .phone-bezel { 
-            box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15); 
-            border-color: var(--border-light); 
-            background-color: var(--slate-800); 
-        }
-        .phone-bezel img { 
-            width: 100%; 
-            height: auto; 
-            border-radius: 34px; 
-            display: block; 
-        }
+        .slide-light .phone-bezel { box-shadow: 0 30px 60px -15px rgba(0, 0, 0, 0.15); border-color: var(--border-light); background-color: var(--slate-800); }
+        .phone-bezel img { width: 100%; height: auto; border-radius: 34px; display: block; }
         
-        .micro-line {
-            margin-top: 2rem;
-            font-family: 'JetBrains Mono', monospace;
-            font-size: 0.85rem;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--konga-orange);
-            text-align: center;
-            max-width: 400px;
-        }
+        .micro-line { margin-top: 2rem; font-family: 'JetBrains Mono', monospace; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--konga-orange); text-align: center; max-width: 400px; }
 
         /* Dashboard Slide */
         .dashboard-ui { background-color: #0F172A; border-radius: 12px; border: 1px solid #334155; overflow: hidden; box-shadow: 0 40px 80px rgba(0,0,0,0.6); width: 100%; max-width: 550px;}
@@ -260,18 +270,7 @@
         .cta-content p { font-size: 1.25rem; margin-bottom: 3rem; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.8; }
 
         /* Scroll Indicator */
-        .scroll-indicator {
-            position: absolute;
-            bottom: 2rem;
-            left: 50%;
-            transform: translateX(-50%);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 0.5rem;
-            opacity: 0.6;
-            animation: bounce 2s infinite;
-        }
+        .scroll-indicator { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 0.5rem; opacity: 0.6; animation: bounce 2s infinite; z-index: 10; }
         .scroll-indicator span { font-family: 'JetBrains Mono', monospace; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--white); }
         .scroll-indicator .line { width: 1px; height: 30px; background-color: var(--white); }
 
@@ -289,7 +288,7 @@
             .status-grid { grid-template-columns: 1fr; padding: 2rem; }
             .phone-bezel { max-width: 320px; }
             .slide { padding: 6rem 5% 2rem; height: auto; min-height: 100svh;}
-            .cover-content h1 { font-size: 2.5rem; }
+            .cover-content { transform: scale(0.9); }
         }
     </style>
 </head>
@@ -299,23 +298,36 @@
 
     <div class="presentation-wrapper" id="scroll-container">
         
-        <!-- SLIDE 1: Cinematic Cover & Hook -->
         <section class="slide cover-slide">
+            
+            <div class="floating-gallery">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-1.webp" class="img-1">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-2.webp" class="img-2">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-3.webp" class="img-3">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-4.webp" class="img-4">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-5.webp" class="img-5">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-6.webp" class="img-6">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-7.webp" class="img-7">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-8.webp" class="img-8">
+                <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/picture-9.webp" class="img-9">
+            </div>
+
             <div class="container cover-content">
                 <img src="https://raw.githubusercontent.com/iktiarnazib/Konga-ecommerce/main/Konga%20Online%20Marketplace/logo.webp" alt="Konga Logo" class="cover-logo reveal">
                 <h1 class="reveal delay-1">I build the app your business can't launch without <br><span class="accent-text">— and you watch it happen.</span></h1>
-                <p class="reveal delay-2">Flagship Case Study // Konga E-commerce</p>
-                <div class="reveal delay-3" style="margin-top: 2rem;">
+                <p class="subtitle reveal delay-2">Flagship Case Study // Konga E-commerce</p>
+                <div class="reveal delay-3" style="margin-top: 1rem;">
                     <a href="#availability" class="btn">View The Build</a>
                 </div>
+                <p class="store-text reveal delay-4">Konga ecommerce app available in App Store and Play Store.</p>
             </div>
-            <div class="scroll-indicator reveal delay-4">
+            
+            <div class="scroll-indicator reveal delay-5">
                 <span>Scroll</span>
                 <div class="line"></div>
             </div>
         </section>
 
-        <!-- SLIDE 2: Availability -->
         <section class="slide slide-dark-alt" id="availability">
             <div class="container">
                 <div class="status-grid reveal">
@@ -335,7 +347,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 3: Feature 01 - Search -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -354,7 +365,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 4: Feature 02 - Personalization -->
         <section class="slide slide-dark">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -373,7 +383,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 5: Feature 03 - Filters -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -392,7 +401,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 6: Feature 04 - Favorites -->
         <section class="slide slide-dark-alt">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -411,7 +419,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 7: Feature 05 - Checkout -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -430,7 +437,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 8: Feature 06 - Payments -->
         <section class="slide slide-dark">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -449,7 +455,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 9: Feature 07 - Tracking -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -468,7 +473,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 10: Feature 08 - Management -->
         <section class="slide slide-dark-alt">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -487,7 +491,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 11: Feature 09 - Deals -->
         <section class="slide slide-light">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -506,7 +509,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 12: The Dashboard Philosophy -->
         <section class="slide slide-dark">
             <div class="container feature-split">
                 <div class="feature-text">
@@ -540,7 +542,6 @@
             </div>
         </section>
 
-        <!-- SLIDE 13: Closing CTA -->
         <section class="slide slide-dark-alt">
             <div class="container cta-content">
                 <h2 class="reveal">Ready to build?</h2>
@@ -553,7 +554,6 @@
 
     </div>
 
-    <!-- Intersection Observer JS for Presentation Reveals -->
     <script>
         document.addEventListener("DOMContentLoaded", function() {
             const observerOptions = {
